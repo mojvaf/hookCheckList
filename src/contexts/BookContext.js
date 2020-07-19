@@ -1,11 +1,11 @@
 import React, { createContext, useState } from 'react';
-import { v3 as uuidv3 } from 'uuid';
+import { v1 as uuidv1 } from 'uuid';
 
 export const BookContext = createContext();
 
 const BookContextProvider = (props) => {
 
-    const { v: uuidv } = require('uuid');
+    const { v4: uuidv4 } = require('uuid');
 
     const [books, setBooks] = useState([
         { title: 'name of the wind', author: 'sara', id: 1 },
@@ -13,7 +13,7 @@ const BookContextProvider = (props) => {
     ])
 
     const addBook = (title, author) => {
-        setBooks([...books, { title, author, id: uuidv3 }])
+        setBooks([...books, { title, author, id: uuidv1() }])
     }
 
     const removeBook = (id) => {
